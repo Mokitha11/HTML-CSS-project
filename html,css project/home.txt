@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jack Cake Waves - Home</title>
+  <style>
+    /* Global styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      background-color: #f9f5f0;
+    }
+    /* Sidebar styles */
+    .sidebar {
+      width: 250px;
+      background-color: #fff8f0;
+      padding: 20px;
+      min-height: 100vh;
+      border-right: 1px solid #e0d4c0;
+      position: fixed;
+    }
+    .sidebar h2 {
+      margin-bottom: 20px;
+      color: #a0522d;
+    }
+    .sidebar ul {
+      list-style-type: none;
+    }
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .sidebar ul li a:hover {
+      color: #a0522d;
+    }
+    /* Main content styles */
+    .content {
+      flex: 1;
+      padding: 20px;
+      margin-left: 250px;
+    }
+    .content header {
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff8f0 0%, #f9f5f0 100%);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .content header h1 {
+      color: #a0522d;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .content header p {
+      font-size: 1.2em;
+      color: #555;
+    }
+    /* Search bar styles */
+    .search-container {
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: center;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 12px 20px;
+      border: 2px solid #e0d4c0;
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .search-bar:focus {
+      border-color: #a0522d;
+    }
+    /* Menu section styles */
+    .menu-section {
+      padding: 40px 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .menu-category {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      margin-bottom: 40px;
+    }
+    .menu-category:hover {
+      transform: translateY(-5px);
+    }
+    .menu-category h3 {
+      color: #a0522d;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #e0d4c0;
+      text-align: center;
+      font-size: 1.6em;
+      font-weight: 600;
+      position: relative;
+    }
+    .menu-category h3::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: #a0522d;
+    }
+    .menu-item {
+      background-color: #fff;
+      border: 1px solid #e0d4c0;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-bottom: 25px;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .menu-item a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .menu-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: transform 0.3s ease;
+    }
+    .menu-item:hover img {
+      transform: scale(1.05);
+    }
+    .menu-item h4 {
+      margin-bottom: 10px;
+      color: #a0522d;
+      font-size: 1.3em;
+      font-weight: 600;
+    }
+    .menu-item p {
+      color: #666;
+      margin-bottom: 15px;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+    .menu-item .price {
+      color: #a0522d;
+      font-weight: bold;
+      font-size: 1.2em;
+      padding: 10px 15px;
+      background: #fff8f0;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .menu-item:hover .price {
+      background: #a0522d;
+      color: #fff;
+    }
+    .menu-item .badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #a0522d;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: 600;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+        position: relative;
+      }
+      .content {
+        margin-left: 0;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .menu-section {
+        padding: 20px 15px;
+      }
+      .menu-category {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+        <li><a href="bakerycart.html">Bakery Cart</a></li>
+      <li><a href="delivery.html">Home Delivery</a></li>
+      <li><a href="offers.html">Special Offers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="payment.html">Payament</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <header>
+      <h1>Jack Cake Waves</h1>
+      <p>Delicious treats served fresh daily!</p>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" class="search-bar" placeholder="Search for your favorite treats...">
+    </div>
+
+    <!-- Menu Items Section -->
+    <section class="menu-section">
+      <div class="menu-grid">
+        <!-- Cakes Category -->
+        <div class="menu-category">
+          <h3>Specialty Cakes</h3>
+          <div class="menu-item">
+            <a href="cakes.html">
+              <img src="images/cake.jpg" alt="Birthday Cakes">
+              <h4>Birthday Cakes</h4>
+              <p>Custom designed celebration cakes with fresh cream and fruits</p>
+              <div class="price">From $15.99</div>
+              <span class="badge">Popular</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="wedding-cakes.html">
+              <img src="images/wedding-cake.jpg" alt="Wedding Cakes">
+              <h4>Wedding Cakes</h4>
+              <p>Elegant multi-tiered designs with premium ingredients</p>
+              <div class="price">From $299.99</div>
+              <span class="badge">Premium</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="cupcakes.html">
+              <img src="images/cupcakes.jpg" alt="Cupcakes">
+              <h4>Cupcakes</h4>
+              <p>Assorted flavors with decorative toppings</p>
+              <div class="price">From $2.99</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Breads Category -->
+        <div class="menu-category">
+          <h3>Fresh Breads</h3>
+          <div class="menu-item">
+            <a href="breads.html">
+              <img src="images/bread.jpg" alt="Artisan Breads">
+              <h4>Artisan Breads</h4>
+              <p>Handcrafted daily with premium flour</p>
+              <div class="price">From $4.99</div>
+              <span class="badge">Fresh Daily</span>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="sourdough.html">
+              <img src="images/sourdough.jpg" alt="Sourdough">
+              <h4>Sourdough</h4>
+              <p>Traditional sourdough bread with perfect crust</p>
+              <div class="price">From $6.99</div>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="baguettes.html">
+              <img src="images/baguette.jpg" alt="Baguettes">
+              <h4>Baguettes</h4>
+              <p>Fresh French baguettes baked twice daily</p>
+              <div class="price">From $3.99</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pizza Category -->
+        <div class="menu-category">
+          <h3>Pizza</h3>
+          <div class="menu-item">
+            <a href="margherita-pizza.html">
+              <img src="images/pizza1.jpg" alt="Margherita Pizza">
+              <h4>Margherita Pizza</h4>
+              <p>Classic pizza with fresh basil and mozzarella</p>
+              <div class="price">From $9.99</div>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="pizza.html">
+              <img src="images/pizza2.jpg" alt="Pepperoni Pizza">
+              <h4>Pepperoni Pizza</h4>
+              <p>Loaded with pepperoni and extra cheese</p>
+              <div class="price">From $11.99</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Burger Category -->
+        <div class="menu-category">
+          <h3>Burger</h3>
+          <div class="menu-item">
+            <a href="burger.html">
+              <img src="images/burger1.jpg" alt="Classic Burger">
+              <h4>Classic Burger</h4>
+              <p>Juicy beef patty with lettuce, tomato, and cheese</p>
+              <div class="price">From $7.99</div>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="burger2.html">
+              <img src="images/burger2.jpg" alt="Cheese Burger">
+              <h4>Cheese Burger</h4>
+              <p>Classic burger with melted cheese</p>
+              <div class="price">From $8.99</div>
+            </a>
+          </div>
+          <!-- Extra Burger Item -->
+          <div class="menu-item">
+            <a href="burger3.html">
+              <img src="images/burger3.jpg" alt="Veggie Burger">
+              <h4>Veggie Burger</h4>
+              <p>Delicious plant-based patty with fresh veggies</p>
+              <div class="price">From $7.49</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Momos Category -->
+        <div class="menu-category">
+          <h3>Momos</h3>
+          <div class="menu-item">
+            <a href="momos.html">
+              <img src="images/momos1.jpg" alt="Steamed Momos">
+              <h4>Steamed Momos</h4>
+              <p>Delicate dumplings with a spicy filling</p>
+              <div class="price">From $4.99</div>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="momos.html">
+              <img src="images/momos2.jpg" alt="Fried Momos">
+              <h4>Fried Momos</h4>
+              <p>Crispy and savory momos</p>
+              <div class="price">From $5.99</div>
+            </a>
+          </div>
+          <!-- Extra Momos Item -->
+          <div class="menu-item">
+            <a href="momos.html">
+              <img src="images/momos3.jpg" alt="Spicy Momos">
+              <h4>Spicy Momos</h4>
+              <p>Hot and flavorful with a kick</p>
+              <div class="price">From $5.49</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Puffs Category -->
+        <div class="menu-category">
+          <h3>Puffs</h3>
+          <div class="menu-item">
+            <a href="puffs.html">
+              <img src="images/puffs1.jpg" alt="Egg Puff">
+              <h4>Egg Puff</h4>
+              <p>Light puffs filled with creamy custard</p>
+              <div class="price">From $2.50</div>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="puffs.html">
+              <img src="images/puffs2.jpg" alt="Veg Puff">
+              <h4>Veg Puff</h4>
+              <p>Delicious vegetable filling in a crispy pastry</p>
+              <div class="price">From $3.00</div>
+            </a>
+          </div>
+          <div class="menu-item">
+            <a href="puffs.html">
+              <img src="images/puffs3.jpg" alt="Paneer Puff">
+              <h4>Paneer Puff</h4>
+              <p>Flaky puff filled with spiced paneer</p>
+              <div class="price">From $3.50</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+      <h3>Subscribe to Our Newsletter</h3>
+      <p>Get updates about new products and special offers!</p>
+      <form>
+        <input type="email" placeholder="Enter your email address">
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
+  </div>
+</body>
+</html>

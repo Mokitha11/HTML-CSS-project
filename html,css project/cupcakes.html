@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jack Bakery - Cupcakes</title>
+  <style>
+    /* Global styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      background-color: #f9f5f0;
+    }
+    /* Sidebar styles */
+    .sidebar {
+      width: 250px;
+      background-color: #fff8f0;
+      padding: 20px;
+      min-height: 100vh;
+      border-right: 1px solid #e0d4c0;
+      position: fixed;
+    }
+    .sidebar h2 {
+      margin-bottom: 20px;
+      color: #a0522d;
+    }
+    .sidebar ul {
+      list-style: none;
+    }
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .sidebar ul li a:hover {
+      color: #a0522d;
+    }
+    /* Main content styles */
+    .content {
+      flex: 1;
+      margin-left: 250px;
+      padding: 20px;
+    }
+    .content header {
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff8f0 0%, #f9f5f0 100%);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .content header h1 {
+      color: #a0522d;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .content header p {
+      font-size: 1.2em;
+      color: #555;
+    }
+    /* Cupcake items grid */
+    .cupcake-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .cupcake-item {
+      background-color: #fff;
+      border: 1px solid #e0d4c0;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .cupcake-item:hover {
+      transform: translateY(-5px);
+    }
+    .cupcake-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .cupcake-item h4 {
+      color: #a0522d;
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+    .cupcake-item p {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 0.95em;
+    }
+    .cupcake-item .price {
+      color: #a0522d;
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+    /* Form styles for cupcake selection */
+    .cupcake-item form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    .cupcake-item label {
+      font-size: 0.9em;
+      color: #555;
+      width: 100%;
+      text-align: left;
+    }
+    .cupcake-item select,
+    .cupcake-item input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .cupcake-item button {
+      padding: 10px 20px;
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .cupcake-item button:hover {
+      background-color: #8b4513;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        position: relative;
+      }
+      .content {
+        margin-left: 0;
+      }
+    }
+.home-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #a0522d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-btn:hover {
+  background-color: #8b4513;
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="bakerycart.html">Bakery Cart</a></li>
+      <li><a href="delivery.html">Home Delivery</a></li>
+      <li><a href="offers.html">Special Offers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="payment.html">Payament</a></li>
+    </ul>
+  </div>
+  
+  <!-- Main Content for Cupcakes -->
+  <div class="content">
+    <header>
+      <h1>Cupcakes</h1>
+      <p>Select your favorite cupcake flavor, quantity, and add to cart.</p>
+    </header>
+    <section class="cupcake-list">
+      <!-- Cupcake Option 1 -->
+      <div class="cupcake-item">
+        <img src="images/vanilla-cupcake.jpg" alt="Vanilla Cupcake">
+        <h4>Vanilla Cupcake</h4>
+        <p>Light, fluffy, and topped with vanilla buttercream.</p>
+        <div class="price">$2.50</div>
+        <form action="#" method="post">
+          <label for="vanilla-cupcake-flavor">Choose Flavor:</label>
+          <select id="vanilla-cupcake-flavor" name="flavor">
+            <option value="classic-vanilla">Classic Vanilla</option>
+            <option value="vanilla-bean">Vanilla Bean</option>
+          </select>
+          <label for="vanilla-cupcake-qty">Quantity:</label>
+          <input type="number" id="vanilla-cupcake-qty" name="quantity" min="1" value="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+      <!-- Cupcake Option 2 -->
+      <div class="cupcake-item">
+        <img src="images/chocolate-cupcake.jpg" alt="Chocolate Cupcake">
+        <h4>Chocolate Cupcake</h4>
+        <p>Decadent chocolate with rich chocolate ganache.</p>
+        <div class="price">$2.99</div>
+        <form action="#" method="post">
+          <label for="chocolate-cupcake-flavor">Choose Flavor:</label>
+          <select id="chocolate-cupcake-flavor" name="flavor">
+            <option value="milk-chocolate">Milk Chocolate</option>
+            <option value="dark-chocolate">Dark Chocolate</option>
+          </select>
+          <label for="chocolate-cupcake-qty">Quantity:</label>
+          <input type="number" id="chocolate-cupcake-qty" name="quantity" min="1" value="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+      <!-- Cupcake Option 3 -->
+      <div class="cupcake-item">
+        <img src="images/strawberry-cupcake.jpg" alt="Strawberry Cupcake">
+        <h4>Strawberry Cupcake</h4>
+        <p>Fresh strawberry flavor with light cream topping.</p>
+        <div class="price">$2.75</div>
+        <form action="#" method="post">
+          <label for="strawberry-cupcake-flavor">Choose Flavor:</label>
+          <select id="strawberry-cupcake-flavor" name="flavor">
+            <option value="fresh-strawberry">Fresh Strawberry</option>
+            <option value="strawberry-vanilla">Strawberry Vanilla</option>
+          </select>
+          <label for="strawberry-cupcake-qty">Quantity:</label>
+          <input type="number" id="strawberry-cupcake-qty" name="quantity" min="1" value="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+      <!-- Additional cupcake options can be added similarly -->
+<!-- Floating Home Button -->
+<a href="home.html" class="home-btn">Go to Home</a>
+
+    </section>
+  </div>
+</body>
+</html>

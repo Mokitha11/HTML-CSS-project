@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jack Bakery - Classic Burger Variants</title>
+  <style>
+    /* Global styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { display: flex; background-color: #f9f5f0; }
+    /* Sidebar styles */
+    .sidebar {
+      width: 250px; background-color: #fff8f0; padding: 20px;
+      min-height: 100vh; border-right: 1px solid #e0d4c0; position: fixed;
+    }
+    .sidebar h2 { margin-bottom: 20px; color: #a0522d; }
+    .sidebar ul { list-style: none; }
+    .sidebar ul li { margin-bottom: 15px; }
+    .sidebar ul li a {
+      text-decoration: none; color: #333; font-weight: bold; transition: color 0.3s;
+    }
+    .sidebar ul li a:hover { color: #a0522d; }
+    /* Main content styles */
+    .content {
+      flex: 1; margin-left: 250px; padding: 20px;
+    }
+    .content header {
+      text-align: center; margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff8f0 0%, #f9f5f0 100%);
+      padding: 30px; border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .content header h1 {
+      color: #a0522d; font-size: 2.5em; margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .content header p { font-size: 1.2em; color: #555; }
+    /* Product detail styles */
+    .product-detail {
+      display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px; align-items: center;
+      border-top: 1px solid #e0d4c0; padding-top: 30px;
+    }
+    .product-image { flex: 1 1 300px; }
+    .product-image img {
+  width: 100%;
+  height: 250px; /* Adjust as needed */
+  object-fit: contain; /* Ensures the whole image is visible */
+  background-color: #fff; /* Adds a background if needed */
+}
+
+    .product-info { flex: 1 1 300px; }
+    .product-info h2 {
+      color: #a0522d; margin-bottom: 10px; font-size: 2em;
+    }
+    .product-info p {
+      margin-bottom: 15px; font-size: 1em; color: #333; line-height: 1.6;
+    }
+    .product-info .price {
+      color: #a0522d; font-weight: bold; font-size: 1.5em; margin-bottom: 20px;
+    }
+    /* Add to Cart form */
+    .product-info form {
+      display: flex; flex-direction: column; gap: 10px; max-width: 300px;
+    }
+    .product-info input[type="number"] {
+      padding: 10px; border: 1px solid #ccc; border-radius: 5px;
+    }
+    .product-info button {
+      padding: 10px 20px; background-color: #a0522d; color: #fff;
+      border: none; border-radius: 5px; cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .product-info button:hover { background-color: #8b4513; }
+    @media (max-width: 768px) {
+      .sidebar { width: 100%; position: relative; }
+      .content { margin-left: 0; }
+      .product-detail { flex-direction: column; }
+    }
+.home-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #a0522d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-btn:hover {
+  background-color: #8b4513;
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="bakerycart.html">Bakery Cart</a></li>
+      <li><a href="delivery.html">Home Delivery</a></li>
+      <li><a href="offers.html">Special Offers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="payment.html">Payament</a></li>
+    </ul>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="content">
+    <header>
+      <h1>Classic Burger Variants</h1>
+      <p>Choose from our Veg Classic or Non-Veg Classic options.</p>
+    </header>
+    
+    <!-- Veg Classic Burger Section -->
+    <section class="product-detail">
+      <div class="product-image">
+        <img src="images/burger-classic-veg.jpg" alt="Veg Classic Burger">
+      </div>
+      <div class="product-info">
+        <h2>Veg Classic Burger</h2>
+        <p>A delicious burger featuring a spiced vegetable patty, fresh lettuce, tomato, and a tangy sauce, served on a toasted bun.</p>
+        <div class="price">$7.49</div>
+        <form action="#" method="post">
+          <label for="veg-classic-qty">Quantity:</label>
+          <input type="number" id="veg-classic-qty" name="quantity" min="1" value="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+    </section>
+    
+    <!-- Non-Veg Classic Burger Section -->
+    <section class="product-detail">
+      <div class="product-image">
+        <img src="images/burger-classic-nonveg.jpg" alt="Non-Veg Classic Burger">
+      </div>
+      <div class="product-info">
+        <h2>Non-Veg Classic Burger</h2>
+        <p>Our non-veg classic features a juicy beef patty with fresh lettuce, tomato, and cheese, served on a toasted bun with signature sauce.</p>
+        <div class="price">$8.49</div>
+        <form action="#" method="post">
+          <label for="nonveg-classic-qty">Quantity:</label>
+          <input type="number" id="nonveg-classic-qty" name="quantity" min="1" value="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+<!-- Floating Home Button -->
+<a href="home.html" class="home-btn">Go to Home</a>
+
+    </section>
+  </div>
+</body>
+</html>

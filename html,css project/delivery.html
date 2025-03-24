@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Delivery - Jack Cake Waves</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      background-color: #f9f5f0;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #fff8f0;
+      padding: 20px;
+      min-height: 100vh;
+      border-right: 1px solid #e0d4c0;
+      position: fixed;
+    }
+    .sidebar h2 {
+      color: #a0522d;
+      margin-bottom: 20px;
+    }
+    .sidebar ul {
+      list-style: none;
+    }
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .sidebar ul li a:hover {
+      color: #a0522d;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+      margin-left: 250px;
+    }
+    .content header {
+      text-align: center;
+      background: linear-gradient(135deg, #fff8f0 0%, #f9f5f0 100%);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .content header h1 {
+      color: #a0522d;
+      font-size: 2.5em;
+    }
+    .delivery-form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .delivery-form label {
+      font-weight: bold;
+      color: #333;
+    }
+    .delivery-form input, .delivery-form select, .delivery-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #e0d4c0;
+      border-radius: 5px;
+    }
+    .delivery-form button {
+      background: #a0522d;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+      width: 100%;
+      font-size: 1.2em;
+    }
+    .delivery-form button:hover {
+      background: #8a3f1f;
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      font-size: 1.5em;
+      color: green;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    #orderSuccess:target {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        min-height: auto;
+        position: relative;
+      }
+      .content {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="bakerycart.html">Bakery Cart</a></li>
+      <li><a href="delivery.html">Home Delivery</a></li>
+      <li><a href="offers.html">Special Offers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="payment.html">Payment</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <header>
+      <h1>Home Delivery</h1>
+      <p>Get your favorite treats delivered to your doorstep!</p>
+    </header>
+
+    <div class="delivery-form">
+      <h2>Delivery Details</h2>
+      
+      <!-- Form for Cash on Delivery -->
+      <form action="#orderSuccess">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="3" required></textarea>
+        
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+        
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <input type="hidden" name="payment-method" value="cash">
+        <button type="submit">Place Order (Cash on Delivery)</button>
+      </form>
+
+      <!-- Form for UPI/Card Payments -->
+      <form action="payment.html">
+        <input type="hidden" name="payment-method" value="card">
+        <button type="submit">Proceed to Payment</button>
+      </form>
+    </div>
+
+    <div id="orderSuccess" class="success-message">
+      ✅ Your order has been placed successfully! Cash on Delivery.
+    </div>
+  </div>
+</body>
+</html>

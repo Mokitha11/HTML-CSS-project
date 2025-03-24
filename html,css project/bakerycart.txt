@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bakery Cart - Jack Cake Waves</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="delivery.html">Home Delivery</a></li>
+      <li><a href="offers.html">Special Offers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="payment.html">Payment</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <header>
+      <h1>Your Bakery Cart</h1>
+      <p>Review your selected items before checkout.</p>
+    </header>
+    <section class="cart-section">
+      <div class="cart-item">
+        <img src="images/cake.jpg" alt="Cake">
+        <h4>Chocolate Cake</h4>
+        <p>Quantity: 1</p>
+        <div class="price">$15.99</div>
+        <button>Remove</button>
+      </div>
+      <div class="cart-item">
+        <img src="images/bread.jpg" alt="Bread">
+        <h4>Whole Wheat Bread</h4>
+        <p>Quantity: 2</p>
+        <div class="price">$9.98</div>
+        <button>Remove</button>
+      </div>
+      <div class="cart-total">
+        <h3>Total: $25.97</h3>
+        <a href="payment.html" class="checkout-btn">Proceed to Payment</a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

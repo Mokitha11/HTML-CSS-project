@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment - Jack Cake Waves</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      background-color: #f9f5f0;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #fff8f0;
+      padding: 20px;
+      min-height: 100vh;
+      border-right: 1px solid #e0d4c0;
+      position: fixed;
+    }
+    .sidebar h2 {
+      color: #a0522d;
+      margin-bottom: 20px;
+    }
+    .sidebar ul {
+      list-style: none;
+    }
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .sidebar ul li a:hover {
+      color: #a0522d;
+    }
+    .content {
+      flex: 1;
+      padding: 20px;
+      margin-left: 250px;
+    }
+    .content header {
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff8f0, #f9f5f0);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .content header h1 {
+      color: #a0522d;
+      font-size: 2.5em;
+    }
+    .payment-form {
+      max-width: 500px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .payment-form label {
+      font-weight: bold;
+      color: #333;
+      display: block;
+      margin-top: 10px;
+    }
+    .payment-form input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #e0d4c0;
+      border-radius: 5px;
+    }
+    .payment-form button {
+      width: 100%;
+      padding: 12px;
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    .payment-form button:hover {
+      background-color: #8b4513;
+    }
+    .success-message {
+      display: none;
+      text-align: center;
+      font-size: 1.5em;
+      color: green;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    #orderSuccess:target {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="offers.html">Special Offers</a></li>
+      <li><a href="payment.html">Payment</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <div class="content">
+    <header>
+      <h1>Payment</h1>
+      <p>Securely complete your purchase</p>
+    </header>
+
+    <form class="payment-form" action="#orderSuccess">
+      <label>Cardholder Name</label>
+      <input type="text" placeholder="Enter Name" required>
+
+      <label>Card Number</label>
+      <input type="text" placeholder="XXXX XXXX XXXX XXXX" required maxlength="16">
+
+      <label>Expiry Date</label>
+      <input type="month" required>
+
+      <label>CVV</label>
+      <input type="text" placeholder="XXX" required maxlength="3">
+
+      <button type="submit">Make Payment</button>
+    </form>
+
+    <div id="orderSuccess" class="success-message">
+      ✅ Order Placed Successfully! Thank you for your purchase.
+    </div>
+  </div>
+
+</body>
+</html>

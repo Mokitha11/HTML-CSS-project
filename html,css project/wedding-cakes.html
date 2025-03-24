@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jack Bakery - Wedding Cakes</title>
+  <style>
+    /* Global styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      background-color: #f9f5f0;
+    }
+    /* Sidebar styles */
+    .sidebar {
+      width: 250px;
+      background-color: #fff8f0;
+      padding: 20px;
+      min-height: 100vh;
+      border-right: 1px solid #e0d4c0;
+      position: fixed;
+    }
+    .sidebar h2 {
+      margin-bottom: 20px;
+      color: #a0522d;
+    }
+    .sidebar ul {
+      list-style: none;
+    }
+    .sidebar ul li {
+      margin-bottom: 15px;
+    }
+    .sidebar ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .sidebar ul li a:hover {
+      color: #a0522d;
+    }
+    /* Main content styles */
+    .content {
+      flex: 1;
+      margin-left: 250px;
+      padding: 20px;
+    }
+    .content header {
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff8f0 0%, #f9f5f0 100%);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .content header h1 {
+      color: #a0522d;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .content header p {
+      font-size: 1.2em;
+      color: #555;
+    }
+    /* Wedding cake grid */
+    .cake-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .cake-item {
+      background-color: #fff;
+      border: 1px solid #e0d4c0;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .cake-item:hover {
+      transform: translateY(-5px);
+    }
+    .cake-item img {
+  width: 100%;
+  height: 220px; 
+  object-fit: contain; /* Ensures the whole image is shown */
+  background-color: #fff; /* Optional: adds a background if needed */
+}
+
+
+    .cake-item h4 {
+      color: #a0522d;
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+    .cake-item p {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 0.95em;
+    }
+    .cake-item .price {
+      color: #a0522d;
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 1.1em;
+    }
+    /* Form styles for selection */
+    .cake-item form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    .cake-item label {
+      font-size: 0.9em;
+      color: #555;
+      width: 100%;
+      text-align: left;
+    }
+    .cake-item select,
+    .cake-item input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .cake-item button {
+      padding: 10px 20px;
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .cake-item button:hover {
+      background-color: #8b4513;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        position: relative;
+      }
+      .content {
+        margin-left: 0;
+      }
+    }
+.home-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #a0522d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-btn:hover {
+  background-color: #8b4513;
+  transform: scale(1.05);
+}
+.home-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background-color: #a0522d;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.home-btn:hover {
+  background-color: #8b4513;
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <h2>Navigation</h2>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+       <li><a href="bakerycart.html">Bakery Cart</a></li>
+      <li><a href="delivery.html">Home Delivery</a></li>
+      <li><a href="offers.html">Special Offers</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="payment.html">Payament</a></li>
+    </ul>
+  </div>
+  
+  <!-- Main Content for Wedding Cakes -->
+  <div class="content">
+    <header>
+      <h1>Wedding Cakes</h1>
+      <p>Select your style, flavor, and add your desired quantity.</p>
+    </header>
+    <section class="cake-list">
+      <!-- Wedding Cake Option 1 -->
+      <div class="cake-item">
+        <img src="images/classic-wedding.jpg" alt="Classic White Wedding Cake">
+        <h4>Classic White Wedding Cake</h4>
+        <p>Elegant and timeless with smooth buttercream frosting.</p>
+        <div class="price">From $250.00</div>
+        <form action="#" method="post">
+          <label for="classic-style">Choose Style:</label>
+          <select id="classic-style" name="style">
+            <option value="simple">Simple Elegance</option>
+            <option value="ornate">Ornate Details</option>
+          </select>
+          <label for="classic-flavor">Choose Flavor:</label>
+          <select id="classic-flavor" name="flavor">
+            <option value="vanilla">Vanilla</option>
+            <option value="almond">Almond</option>
+          </select>
+          <label for="classic-qty">Quantity (tiers):</label>
+          <input type="number" id="classic-qty" name="quantity" min="1" value="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+      <!-- Wedding Cake Option 2 -->
+      <div class="cake-item">
+        <img src="images/modern-wedding.jpg" alt="Modern Minimalist Wedding Cake">
+        <h4>Modern Minimalist Wedding Cake</h4>
+        <p>Clean lines with a contemporary twist, featuring fresh fruit accents.</p>
+        <div class="price">From $320.00</div>
+        <form action="#" method="post">
+          <label for="modern-style">Choose Style:</label>
+          <select id="modern-style" name="style">
+            <option value="minimalist">Minimalist</option>
+            <option value="glam">Glamorous Touch</option>
+          </select>
+          <label for="modern-flavor">Choose Flavor:</label>
+          <select id="modern-flavor" name="flavor">
+            <option value="lemon">Chocolate</option>
+            <option value="vanilla">Vanilla</option>
+          </select>
+          <label for="modern-qty">Quantity (tiers):</label>
+          <input type="number" id="modern-qty" name="quantity" min="1" value="1">
+          <button type="submit">Add to Cart</button>
+        </form>
+      </div>
+      <!-- More wedding cake options can be added similarly -->
+<!-- Floating Home Button -->
+<a href="home.html" class="home-btn">Go to Home</a>
+
+    </section>
+  </div>
+</body>
+</html>
